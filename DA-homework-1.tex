@@ -1,0 +1,92 @@
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage{amssymb, amsmath, graphicx, subfigure}
+\usepackage{algorithm2e}
+
+\setlength{\oddsidemargin}{.25in}
+\setlength{\evensidemargin}{.25in}
+\setlength{\textwidth}{6in}
+\setlength{\topmargin}{-0.4in}
+\setlength{\textheight}{8.5in}
+
+\newcommand{\heading}[6]{
+  \renewcommand{\thepage}{#1-\arabic{page}}
+  \noindent
+  \begin{center}
+  \framebox{
+    \vbox{
+      \hbox to 5.78in { \textbf{#2} \hfill #3 }
+      \vspace{4mm}
+      \hbox to 5.78in { {\Large \hfill #6  \hfill} }
+      \vspace{2mm}
+      \hbox to 5.78in { \textit{Instructor: #4 \hfill #5} }
+    }
+  }
+  \end{center}
+  \vspace*{4mm}
+}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{assumption}[theorem]{Assumption}
+
+\newenvironment{proof}{\noindent{\bf Proof:} \hspace*{1mm}}{
+	\hspace*{\fill} $\Box$ }
+\newenvironment{proof_of}[1]{\noindent {\bf Proof of #1:}
+	\hspace*{1mm}}{\hspace*{\fill} $\Box$ }
+\newenvironment{proof_claim}{\begin{quotation} \noindent}{
+	\hspace*{\fill} $\diamond$ \end{quotation}}
+
+\newcommand{\problemset}[3]{\heading{#1}{236755: Distributed Algorithms}{#2}{Hagit Attiya}{#3}{Home Assignment #1}}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PLEASE MODIFY THESE FIELDS AS APPROPRIATE
+\newcommand{\problemsetnum}{1}          % problem set number
+\newcommand{\duedate}{July 7, 2024}  % problem set deadline
+\newcommand{\studentname}{May Shimony \& Michael Leibman}    % full name of student (i.e., you)
+% PUT HERE ANY PACKAGES, MACROS, etc., ADDED BY YOU
+% ...
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\problemset{\problemsetnum}{\duedate}{\studentname}
+
+\subsection*{Question 1}
+
+
+\subsection*{Question 2}
+
+
+\subsection*{Question 3}
+
+
+
+\subsection*{Question 4}
+
+
+
+% Put bibliography here (if any).
+% Example:
+%
+%\begin{thebibliography}{99}
+%
+% \bibitem[CLRS]{CLRS}
+% Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, and Clifford Stein,
+% \emph{Introduction to Algorithms}, Second Edition.
+% MIT Press and McGraw-Hill, 2001.
+%
+%\end{thebibliography}
+
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
