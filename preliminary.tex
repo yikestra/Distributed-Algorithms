@@ -1,0 +1,101 @@
+%% LyX 2.3.7 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[american]{article}
+\usepackage{fontspec}
+\setmainfont[Mapping=tex-text]{David}
+\setsansfont[Mapping=tex-text]{David}
+\setmonofont{David}
+\usepackage{geometry}
+\geometry{verbose,tmargin=2cm,bmargin=3cm,lmargin=1cm,rmargin=1cm,headheight=0cm,headsep=0cm,footskip=2cm}
+
+\makeatletter
+\@ifundefined{date}{}{\date{}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\newcommand{\linethrough}{\mathpalette\@thickbar}
+\newcommand{\@thickbar}[2]{{#1\mkern0mu\vbox{
+    \sbox\z@{$#1#2\mkern-1.5mu$}%
+    \dimen@=\dimexpr\ht\tw@-\ht\z@+2\p@\relax % The +2 represents the vertical shift of the line.
+    \hrule\@height0.5\p@ % The 0.5 represent the thickness on the line.
+    \vskip\dimen@
+    \box\z@}}
+}
+\makeatother
+\newcommand{\mathstrike}[1]{\ensuremath{\linethrough{#1}}}
+
+\makeatother
+
+\usepackage{polyglossia}
+\setdefaultlanguage[variant=american]{english}
+\begin{document}
+
+\section{Preliminaries}
+
+In this section, we will outline the model assumptions and cryptographic
+techniques that form the basis for Byzantine broadcast protocols in
+adversarial settings.
+
+\subsection{Byzantine Fault Model}
+
+The Byzantine fault model assumes that up to $t$ processes in a network
+of $n$ processes may behave arbitrarily, due to failures or malicious
+intent. The faulty processes can deviate from the protocol in any
+way and, if malicious, may conspire with other corrupt processes to
+disrupt the consensus the reliable processes aspire to achieve. In
+the BA protocols covered in class, consensus was reached under the
+assumption that $n>3t$, meaning honest nodes constitute a majority
+- but in the dishonest majority model , corrupt nodes can outvote
+the honest ones and as a result BA protocols often rely on cryptographic
+methods to provide guarantees of correctness and security.
+
+\subsection{The Dishonest Majority Model}
+
+In the dishonest majority model, we assume that our adversary can
+corrupt a majority of processes in the network, rather than a minority
+as is the case in classic BA problems. When $t\geq\frac{n}{2}$, malicious
+processes have the ability to conspire and coordinate attacks that
+overwhelm the votes cast by honest processes and therefore wildly
+disrupt the consensus attempt, and BA protocols struggle to overcome
+that threat. Since securing the bulk of the votes can no longer be
+a dependable way of reaching agreement, BA protocols under a dishonest
+majority model need to reach consensus even when reliable processes
+are a minority - so a way of detecting which processes \emph{are}
+honest is crucial.
+
+\subsection{Cryptographic Methods and Assumptions}
+
+In order to address the challenges posed by a dishonest majority,
+we will use the following cryptographic tools to ensure security and
+reliability.
+
+\subsubsection{Digital Signatures}
+
+Digital signatures are a common way to approach ensuring message integrity,
+where each process digitally adds its signature when sending messages.
+We assume a trusted public-key infrastructure (PKI) is used, where
+each process has a unique public/private key pair that was fairly
+generated and distributed, and is used to verify the validity of the
+signatures added by the different processes, and the public key is
+incorruptible so that the actual verification is correct. By using
+digital signatures we can guarantee that malicious processes cannot
+forge messages on behalf of honest nodes.
+
+\subsubsection{Verifiable Random Functions}
+
+A verifiable random function (VRFs) is a cryptographic primitive that
+provides a deterministic way to produce a random output while allowing
+anyone to verify that the output was correctly computed. We assume
+that the primitive can be trusted upon to be correct and reliable
+without the need to trust another application to provide randomness
+in the protocol.
+
+\subsubsection{Communication Model}
+
+The communication model considered is \emph{synchronous}. The protocols
+in a synchronous communication model proceed in rounds, where in each
+round every process can send a message to every other process in an
+authenticated way and these messages are guaranteed to arrive within
+some maximum network delay. Messages from honest processes cannot
+be dropped and will be delivered. While adversaries can corrupt processes
+during a round, they cannot corrupt messages that were sent before
+the corruption occurred.
+\end{document}
