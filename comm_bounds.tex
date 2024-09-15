@@ -1,0 +1,65 @@
+\documentclass[11pt]{article}
+\usepackage{fullpage}
+\usepackage[utf8]{inputenc}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{cite}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{definition}{Definition}
+\newtheorem{claim}{Claim}
+\newtheorem{corollary}{Corollary}
+\newtheorem{observation}{Observation}
+
+
+
+\title{Communication Complexity for Byzantine Agreements Under a Dishonest Majority}
+\author{May Shimony 208827485\\
+Michael Leibman 337808117}
+\date{September 3, 2024}
+
+\begin{document}
+    \maketitle
+	
+\section{Introduction}	
+In distributed systems, achieving consensus among a network of nodes is a fundamental challenge. This task becomes especially complex when some nodes may act maliciously or fail arbitrarily, a scenario known as the Byzantine fault. Byzantine Agreement (BA) protocols are specifically designed to tackle this issue, ensuring that all non-faulty nodes in the network can agree on a common value, even in the presence of such faults. The robustness of these protocols is crucial for maintaining the reliability and security of distributed systems, including blockchain networks, distributed databases, and multi-agent systems.
+
+The classical assumption in most BA protocols is that the majority of nodes are honest and reliable, or that even only a fraction of nodes can be corrupt, for example $t < \frac{n}{3}$. Under this assumption, achieving consensus is feasible because the honest nodes can outvote or outmaneuver the faulty or malicious ones. However, this assumption is inconsistent with the ``worst-case`'' mindset so common in theoretical computer science. It is often unrealistic in many real-world applications where the network might be compromised or where nodes might collude to act dishonestly. Examples include permissionless blockchain environments, where the identity and behavior of nodes cannot be fully trusted, and scenarios involving state-sponsored cyberattacks, where a significant portion of the network might be controlled by an adversary.
+
+Byzantine Agreement under a dishonest majority introduces significant complexities, particularly in terms of the communication overhead required to reach consensus. Traditional BA protocols, such as the Dolev-Strong protocol, have linear round complexity, meaning the number of communication rounds required grows linearly with the number of faulty nodes. While this is manageable under an honest majority, it becomes impractical when the majority of nodes are corrupt. The sheer volume of messages that need to be exchanged to ensure consensus in such a hostile environment can lead to excessive communication costs, delays, and increased vulnerability to network congestion and attacks.
+
+The primary challenge, therefore, is to design BA protocols that minimize communication complexity while still achieving consensus even when the majority of nodes are dishonest. This involves developing new algorithms or modifying existing ones to be more communication-efficient, without sacrificing the security and reliability of the consensus process. It also requires a deep understanding of the theoretical limits of communication complexity in adversarial settings and the development of techniques to approach these limits.
+
+Optimizing communication complexity in BA protocols is crucial for the scalability and efficiency of distributed systems. Reducing communication complexity enhances robustness against attacks and failures. Furthermore, Understanding the lower bounds of communication complexity in adversarial settings provides valuable insights into the inherent limitations of consensus protocols. This knowledge can guide the development of more efficient algorithms that are closer to these theoretical limits, thus maximizing the performance and reliability of distributed systems.
+
+\section{Preliminaries}
+\subsection{The Model}
+
+
+\section{Detailed Development of the Results}
+\subsection{Static Corruptions}
+
+\subsection{Strongly Adaptive Adversaries}
+
+
+\section{Summary and Discussion}
+
+
+
+\cite{BBCL}
+\cite{CPS}
+\cite{TLC}
+\cite{WXSD}
+
+
+\bibliographystyle{plainurl}
+\bibliography{citations}
+
+
+
+\end{document} 
